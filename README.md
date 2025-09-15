@@ -20,6 +20,38 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Timeline Journey (GSAP ScrollTrigger)
+
+The SMS workflow timeline is implemented with GSAP + ScrollTrigger.
+
+- Main component: `components/Journey /TimelineJourney.tsx`
+- Slide component: `components/Journey /TimelineSlide.tsx`
+- Types: `components/Journey /types.ts`
+- Dummy data: `components/Journey /data/dummyTimeline.ts`
+
+### Usage
+
+Rendered in `components/homepage/HomePage.tsx`:
+
+```tsx
+import TimelineJourney from "@/components/Journey /TimelineJourney";
+import { dummyTimelineSteps } from "@/components/Journey /data/dummyTimeline";
+
+<TimelineJourney steps={dummyTimelineSteps} />
+```
+
+### How it works
+
+- Uses `gsap` and `ScrollTrigger` with `scrub: true` and `pin: true` to pin the timeline and drive slide transitions via scroll.
+- Each slide image translates from x:100 -> 0 with opacity 0 -> 1, text translates from y:30 -> 0 with opacity. Image has a subtle parallax scale to 1.05 mid-scroll.
+- Keyboard navigation: Arrow Up/Down or Left/Right to move between slides.
+
+### Replacing images
+
+Replace `imageUrl` in `components/Journey /data/dummyTimeline.ts` with your real URLs or local assets. Keep `imageAlt` meaningful for accessibility.
+
+If using local images, place them under `public/` and use `/your-image.jpg` paths.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
