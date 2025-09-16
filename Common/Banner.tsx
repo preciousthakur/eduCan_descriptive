@@ -28,24 +28,22 @@ export default function Banner() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative h-screen w-screen overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(/school.png)` }}
+      />
+      <div className="absolute inset-0 bg-black/45" />
+
       <Section maxWidth={"lg"} py={0}>
         <div
           ref={containerRef}
-          className="relative h-[64vh] min-h-[420px] w-full overflow-hidden rounded-none"
+          className="relative z-10 flex h-screen w-full items-center justify-center"
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(/school-hero.jpg)` }}
-          />
-          <div className="absolute inset-0 bg-black/45" />
-
-          <div className="relative z-10 flex h-full w-full items-center justify-center">
-            <div ref={textRef} className="px-6 text-center">
-              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
-                Your School, One-Stop Solution
-              </h1>
-            </div>
+          <div ref={textRef} className="px-6 text-center">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
+              Your School, One-Stop Solution
+            </h1>
           </div>
         </div>
       </Section>

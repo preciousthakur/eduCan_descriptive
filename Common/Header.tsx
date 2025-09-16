@@ -52,7 +52,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-40">
+    <header className="absolute top-0 z-40 w-full">
       <Section maxWidth="lg" py={0}>
         <div
           ref={headerRef}
