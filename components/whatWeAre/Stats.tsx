@@ -27,7 +27,9 @@ function useCountTo(target: number, durationMs = 1600) {
       ease: "power2.out",
       onUpdate: () => setCount(obj.val),
     });
-    return () => tween.kill();
+    return () => {
+      tween.kill();
+    };
   }, [target, durationMs]);
 
   return { ref, count };
@@ -40,22 +42,27 @@ export default function Stats() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(700px_300px_at_50%_0%,rgba(251,191,36,0.12),transparent)]" />
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-          {stats.map((s) => {
-            const { ref, count } = useCountTo(s.value);
-            const pretty = s.value % 1 === 0 ? Math.round(count).toLocaleString() : count.toFixed(1);
-            return (
-              <div key={s.label} className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur">
-                <div className="text-3xl font-bold tracking-tight">
-                  <span ref={ref}>{pretty}</span>
-                  {s.suffix ? <span className="text-white/70">{s.suffix}</span> : null}
-                </div>
-                <div className="mt-1 text-xs uppercase tracking-wider text-white/60">{s.label}</div>
-              </div>
-            );
-          })}
+          {stats.map((s) => (
+            <CountStatCard key={s.label} label={s.label} value={s.value} suffix={s.suffix} />
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+
+function CountStatCard({ label, value, suffix }: { label: string; value: number; suffix?: string }) {
+  const { ref, count } = useCountTo(value);
+  const pretty = value % 1 === 0 ? Math.round(count).toLocaleString() : count.toFixed(1);
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur">
+      <div className="text-3xl font-bold tracking-tight">
+        <span ref={ref}>{pretty}</span>
+        {suffix ? <span className="text-white/70">{suffix}</span> : null}
+      </div>
+      <div className="mt-1 text-xs uppercase tracking-wider text-white/60">{label}</div>
+    </div>
   );
 }
 

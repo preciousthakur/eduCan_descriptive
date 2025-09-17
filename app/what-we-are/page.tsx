@@ -3,7 +3,6 @@ import MissionVision from "@/components/whatWeAre/MissionVision";
 import Stats from "@/components/whatWeAre/Stats";
 import TeamSpotlight from "@/components/whatWeAre/TeamSpotlight";
 import Values from "@/components/whatWeAre/Values";
-import dynamic from "next/dynamic";
 
 // const Hero = dynamic(() => import("@/components/whatWeAre/Hero"), { ssr: false });
 // const Values = dynamic(() => import("@/components/whatWeAre/Values"), { ssr: false });

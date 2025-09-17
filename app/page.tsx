@@ -1,6 +1,4 @@
-import Image from "next/image";
-import dynamic from "next/dynamic";
-import HomePage from "@/components/homepage/HomePage";
+// import Image from "next/image";
 import ProductOwnerModule from "@/components/ProductOwnerModule";
 import SuperAdminModule from "@/components/SuperAdminModule";
 import SchoolAdminModule from "@/components/SchoolAdminModule";

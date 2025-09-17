@@ -37,7 +37,7 @@ export default function ContactForm() {
       await new Promise((r) => setTimeout(r, 800));
       setSuccess("Thanks! We'll get back to you shortly.");
       setForm({ name: "", email: "", phone: "", topic: "demo", message: "" });
-    } catch (err) {
+    } catch {
       setError("Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);

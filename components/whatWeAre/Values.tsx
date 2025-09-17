@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import type { ReactNode } from "react";
 import gsap from "gsap";
 import { School, Security, Speed, Groups } from "@mui/icons-material";
 
 type ValueItem = {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: ReactNode;
 };
 
 const values: ValueItem[] = [
