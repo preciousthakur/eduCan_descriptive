@@ -6,6 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Section from "@/Common/Section";
+import Link from "next/link";
 import {
   animateHeaderIntro,
   attachButtonHoverGlow,
@@ -66,21 +67,24 @@ export default function Header() {
           </div>
 
           <div className="hidden items-center gap-3 md:flex" ref={buttonsContainerRef}>
-            <Button
-            // sx={{textTransform:"none"}}
-              variant="contained"
-              color="inherit"
-              className="!rounded-xl !bg-white/10 !px-4 !py-2 !text-white hover:!bg-white/10 !normal-case"
-            >
-              What we Are?
-            </Button>
-            <Button
-              variant="contained"
-              color="inherit"
-              className="!rounded-xl !bg-white/10 !px-4 !py-2 !text-white hover:!bg-white/20 !normal-case"
-            >
-              Reach Us Now!
-            </Button>
+            <Link href="/what-we-are" className="no-underline">
+              <Button
+                variant="contained"
+                color="inherit"
+                className="!rounded-xl !bg-white/10 !px-4 !py-2 !text-white hover:!bg-white/10 !normal-case"
+              >
+                What we Are?
+              </Button>
+            </Link>
+            <Link href="/reach-us-now" className="no-underline">
+              <Button
+                variant="contained"
+                color="inherit"
+                className="!rounded-xl !bg-white/10 !px-4 !py-2 !text-white hover:!bg-white/20 !normal-case"
+              >
+                Reach Us Now!
+              </Button>
+            </Link>
           </div>
 
           <div className="md:hidden">
@@ -113,24 +117,26 @@ export default function Header() {
               </IconButton>
             </div>
             <div className="mt-2 flex flex-col gap-3">
-              <Button
-                fullWidth
-                variant="contained"
-                color="inherit"
-                className="!rounded-xl !bg-white/10 !px-4 !py-3 !text-white hover:!bg-white/20"
-                onClick={closeDrawer}
-              >
-                About
-              </Button>
-              <Button
-                fullWidth
-                variant="contained"
-                color="inherit"
-                className="!rounded-xl !bg-white/10 !px-4 !py-3 !text-white hover:!bg-white/20"
-                onClick={closeDrawer}
-              >
-                Contact
-              </Button>
+              <Link href="/what-we-are" className="no-underline" onClick={closeDrawer}>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  color="inherit"
+                  className="!rounded-xl !bg-white/10 !px-4 !py-3 !text-white hover:!bg-white/20"
+                >
+                  What we Are?
+                </Button>
+              </Link>
+              <Link href="/reach-us-now" className="no-underline" onClick={closeDrawer}>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  color="inherit"
+                  className="!rounded-xl !bg-white/10 !px-4 !py-3 !text-white hover:!bg-white/20"
+                >
+                  Reach Us Now!
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
